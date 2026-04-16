@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-noite: #0D0D0D;
+  --color-marfim: #F5F0E8;
+  --color-dourado: #B8953F;
+  --color-cinza: #2A2A2A;
+  --color-offwhite: #FAF7F2;
+
+  --font-display: 'Georgia', 'Times New Roman', serif;
+  --font-body: 'Palatino', 'Book Antiqua', serif;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: var(--color-noite);
+  color: var(--color-marfim);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 12px solid var(--color-noite);
+  outline: 1px solid var(--color-dourado);
+  outline-offset: -8px;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Base resets */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.label-text {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+
+.label-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--color-dourado);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.gold-separator {
+  position: relative;
+  text-align: center;
+  color: var(--color-dourado);
+}
+
+.gold-separator::before,
+.gold-separator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background-color: var(--color-dourado);
+  opacity: 0.5;
+}
+
+.gold-separator::before {
+  right: 100%;
+  margin-right: 12px;
+}
+
+.gold-separator::after {
+  left: 100%;
+  margin-left: 12px;
+}
+
+@keyframes subtle-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(184, 149, 63, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(184, 149, 63, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(184, 149, 63, 0); }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 2s infinite;
+}
+
+/* Professional Polish components */
+.service-card {
+  border: 1px solid var(--color-cinza);
+  padding: 20px;
+  background: rgba(42, 42, 42, 0.3);
+  position: relative;
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 0;
+  border-color: transparent var(--color-dourado) transparent transparent;
+}
+
+.btn-primary {
+  background: var(--color-noite);
+  color: var(--color-marfim);
+  border: 1px solid var(--color-noite);
+  padding: 12px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.btn-primary:hover {
+  background: var(--color-cinza);
+}
