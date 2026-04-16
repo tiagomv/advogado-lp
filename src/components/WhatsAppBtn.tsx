@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppBtn() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show button after scrolling down 400px (past the hero)
       if (window.scrollY > 400) {
         setIsVisible(true);
       } else {
@@ -27,9 +27,9 @@ export default function WhatsAppBtn() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-10 right-10 z-[1001] w-[60px] h-[60px] rounded-full bg-noite border border-dourado text-dourado flex items-center justify-center hover:bg-cinza shadow-[0_0_15px_rgba(184,149,63,0.4)] transition-colors duration-300"
+          className="fixed bottom-10 right-10 z-[1001] w-[60px] h-[60px] rounded-full bg-noite border border-dourado flex items-center justify-center hover:bg-cinza shadow-[0_0_15px_rgba(184,149,63,0.4)] transition-colors duration-300"
         >
-          <svg className="w-6 h-6 relative z-10 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <MessageCircle className="w-6 h-6 text-white" />
         </motion.a>
       )}
     </AnimatePresence>
